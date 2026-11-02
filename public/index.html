@@ -53,11 +53,11 @@ footer{text-align:center;color:#777;margin:35px 0 15px;font-size:12px}
 
 <div class="section">YOUR APPLICATIONS</div>
 <div class="grid">
- <div class="app"><span>☎️</span><small>Phone</small></div>
- <div class="app"><span>💬</span><small>Messages</small></div>
- <div class="app"><span>📷</span><small>Camera</small></div>
- <div class="app"><span>🖼️</span><small>Gallery</small></div>
- <div class="app"><span>⚙️</span><small>Settings</small></div>
+ <div class="app" onclick="openAndroidApp('phone')"><span>☎️</span><small>Phone</small></div>
+ <div class="app" onclick="openAndroidApp('messages')"><span>💬</span><small>Messages</small></div>
+ <div class="app" onclick="openAndroidApp('camera')"><span>📷</span><small>Camera</small></div>
+ <div class="app" onclick="openAndroidApp('gallery')"><span>🖼️</span><small>Gallery</small></div>
+ <div class="app" onclick="openAndroidApp('settings')"><span>⚙️</span><small>Settings</small></div>
  <div class="app"><span>🎵</span><small>Music</small></div>
  <div class="app"><span>🤖</span><small>STAR AI</small></div>
  <div class="app"><span>🌐</span><small>Browser</small></div>
@@ -73,6 +73,19 @@ footer{text-align:center;color:#777;margin:35px 0 15px;font-size:12px}
 <footer>POWERED BY KING STAR<br>UNIVERSAL ANDROID PROJECT</footer>
 
 <script>
+async function openAndroidApp(app) {
+ try {
+   const launcher = window.Capacitor?.Plugins?.Launcher;
+   if (!launcher) {
+     alert("Android launcher service haipatikani. Tafadhali rebuild APK.");
+     return;
+   }
+   await launcher.openApp({ app });
+ } catch (error) {
+   alert("Imeshindikana kufungua app: " + (error?.message || error));
+ }
+}
+
 function updateClock(){
  const now=new Date();
  document.getElementById('time').textContent=
