@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>KING STAR OS</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;padding:25px 20px;
+ color:white;font-family:Arial,sans-serif;
+ background:radial-gradient(circle at top,#391010,#090909 55%);
+}
+header{text-align:center;padding:35px 0 25px}
+.logo{font-size:65px;color:#ff3030}
+h1{letter-spacing:4px;margin:8px 0}
+.muted{color:#aaa;font-size:12px}
+.clock{text-align:center;margin:20px 0 30px}
+#time{font-size:43px;font-weight:bold}
+#date{color:#aaa;margin-top:5px}
+.section{margin:25px 0 12px;color:#ff5555;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.app{
+ background:#1b1b1b;border:1px solid #393939;
+ border-radius:17px;padding:20px 5px;text-align:center;
+ min-height:95px;
+}
+.app span{font-size:27px;display:block;margin-bottom:9px}
+.app small{color:#ddd}
+.card{
+ background:#171717;border:1px solid #383838;
+ border-radius:17px;padding:18px;margin-top:20px;
+}
+button{
+ background:#bd2020;color:white;border:0;
+ padding:13px 18px;border-radius:10px;font-weight:bold;
+}
+footer{text-align:center;color:#777;margin:35px 0 15px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">♛</div>
+ <h1>KING STAR OS</h1>
+ <div class="muted">A NEW ANDROID EXPERIENCE</div>
+</header>
+
+<div class="clock">
+ <div id="time">00:00</div>
+ <div id="date">Loading date...</div>
+</div>
+
+<div class="section">YOUR APPLICATIONS</div>
+<div class="grid">
+ <div class="app"><span>☎️</span><small>Phone</small></div>
+ <div class="app"><span>💬</span><small>Messages</small></div>
+ <div class="app"><span>📷</span><small>Camera</small></div>
+ <div class="app"><span>🖼️</span><small>Gallery</small></div>
+ <div class="app"><span>⚙️</span><small>Settings</small></div>
+ <div class="app"><span>🎵</span><small>Music</small></div>
+ <div class="app"><span>🤖</span><small>STAR AI</small></div>
+ <div class="app"><span>🌐</span><small>Browser</small></div>
+ <div class="app"><span>📦</span><small>All Apps</small></div>
+</div>
+
+<div class="card">
+ <div class="section">KING STAR SYSTEM</div>
+ <p>Welcome to your new home experience.</p>
+ <div class="muted">Development Preview • Version 1.0</div>
+</div>
+
+<footer>POWERED BY KING STAR<br>UNIVERSAL ANDROID PROJECT</footer>
+
+<script>
+function updateClock(){
+ const now=new Date();
+ document.getElementById('time').textContent=
+ now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+ document.getElementById('date').textContent=
+ now.toLocaleDateString([], {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+updateClock();
+setInterval(updateClock,1000);
+</script>
+</body>
+</html>
